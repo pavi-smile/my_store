@@ -1,0 +1,20 @@
+<nav class="col-md-12">
+  <div id="main-nav-bar" class="navbar">
+    <ul class="nav navbar-nav" data-hook>
+      <li id="home-link" data-hook><%= link_to Spree.t(:home), spree.root_path %></li>
+      <li id="home-link" data-hook><%= link_to Spree.t(:about), spree.about_us_path %></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" data-hook>
+      <li><%= link_to 'Login', login_path unless spree_current_user %></li>
+       <li> <%= link_to 'Logout', logout_path if spree_current_user %></li>
+        <li><%= link_to 'My account',account_path if spree_current_user %></li>
+      <li id="link-to-cart" data-hook>
+        <noscript>
+          <%= link_to_cart %>
+        </noscript>
+        &nbsp;
+      </li>
+      <script>Spree.fetch_cart()</script>
+    </ul>
+  </div>
+</nav>
